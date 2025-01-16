@@ -96,5 +96,18 @@ For continued plasma tube.
         end
 
 ```
-For x axis and y axis, change `particle_e(j,3)` to `particle_e(j,1)` or `particle_e(j,2)`, `z_total` to `x_total` or `y_total`, respectively. Similar procedure for `particle_i()` to change boundary condision for ion.
+For x axis and y axis, change `particle_e(j,3)` to `particle_e(j,1)` or `particle_e(j,2)`, `z_total` to `x_total` or `y_total`, respectively. Similar procedure for `particle_i()` to change boundary conditions for ion.
+One important thing determines the simulation setup is external field, in this code, it is set a microwave is injected into the plasma.
+```
+f0 = 2450e6;
+c = 3e9;
+```
+```
+    for i = round(20:grid_size(1))
+        for j = round(1:grid_size(3))
+            E_ext.y(i,:,j) = (120)*sin((1:grid_size(2))/(c/f0)+ 2*pi*t*f0);
+        end
+    end
+```
+For other types of external fields, change `E_ext` and `B_ext`. e.g. `E_ext.x` determines x weight of external electrical field.
 [^1]: Dawson, J.M. (1983). "Particle simulation of plasmas". Reviews of Modern Physics. 55 (2): 403–447. Bibcode:1983RvMP...55..403D. doi:10.1103/RevModPhys.55.403.
