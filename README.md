@@ -94,7 +94,6 @@ For continued plasma tube.
         if particle_e(j,3) < 0
             particle_e(j,3) = particle_e(j,3) + z_total;
         end
-
 ```
 For x axis and y axis, change `particle_e(j,3)` to `particle_e(j,1)` or `particle_e(j,2)`, `z_total` to `x_total` or `y_total`, respectively. Similar procedure for `particle_i()` to change boundary conditions for ion.
 One important thing determines the simulation setup is external field, in this code, it is set a microwave is injected into the plasma.
