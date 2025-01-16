@@ -27,8 +27,7 @@ for i = 1:particle_number_i
     particle_v_i(i,3) = v0_i*random_number_v(i,3)/sqrt(random_number_v(i,1)^2+random_number_v(i,2)^2+random_number_v(i,3)^2);
 end
 ```
-
-Here is the code for the injection of the new particles. follows the similar procedure of the initialization of the particles
+Here is the code for the injection of the new particles, following the similar procedure of the initialization of the particles
 ```
     %inject new particle electron
     inject_n = min(max_injection,particle_number_setted-particle_number_e)
@@ -68,7 +67,27 @@ Here is the code for the injection of the new particles. follows the similar pro
         end
     end
 ```
+In the part of killing particles out of the boundary, user can apply codes to reflect particles or produce a continued plasma tube, here use the electron particle in z axis as an example. For reflecting particles hit the boundary.
+```
+% z _axis reflected
+        if particle_e(j,3) > z_total
+            particle_e(j,3) = z_total - (particle_e(j,3) - z_total);
+            particle_v_e(j,3) = - particle_v_e(j,3);
+        end
+        if particle_e(j,3) < 0
+            particle_e(j,3) = - particle_e(j,3);
+            particle_v_e(j,3) = - particle_v_e(j,3);
+        end
+```
+For continued plasma tube.
+```
+        if particle_e(j,3) > z_total
+            particle_e(j,3) = particle_e(j,3) - z_total;
+        end
+        if particle_e(j,3) < 0
+            particle_e(j,3) = particle_e(j,3) + z_total;
+        end
 
-
-
+```
+For x axis and y axis, change `particle_e(j,3)` to `particle_e(j,1)` or `particle_e(j,2)`, `z_total` to `x_total` or `y_total`, respectively. Similar procedure for `particle_i()` to change boundary condision for ion.
 [^1]: Dawson, J.M. (1983). "Particle simulation of plasmas". Reviews of Modern Physics. 55 (2): 403–447. Bibcode:1983RvMP...55..403D. doi:10.1103/RevModPhys.55.403.
