@@ -4,10 +4,10 @@
 ## Introduction
 This is a code of a plasma simulation using the particle-in-cell (PIC) method. PIC is a method of simulating plasma with giant particles and discretizing fields into meshes[^1]. This code aims to simulate collisionless plasma with an ion-electron PIC code based on Matlab. 
 ## Code details for change set-ups of the simulation
-The code is initialized as a hydrogen electron code, the user can change ion mass and charge by changing `mi` and `e_i`. <br />
-This code allows injection of new particles into the chamber, user can define `particle_number_setted ` to limit the maxima numbers of giant particles and `max_injection` for the maxima number of giant particles injected each time step. Note that number of real particles contained in one giant particle is also determined by this number, set it carefully or it may influence the result of the simulation.  <br />
-`T0` and `ne` are used to set the initial temperature and number density of the particles, in K and $m^{-3}$ respectively.  <br />
-`grid_size` is a 3-D array containing number of grips in x,y,z axis, respectively.  <br >
+The code is initialized as a hydrogen electron code, the user can change ion mass and charge by changing `mi` and `e_i`. <br>
+This code allows injection of new particles into the chamber, user can define `particle_number_setted ` to limit the maxima numbers of giant particles and `max_injection` for the maxima number of giant particles injected each time step. Note that number of real particles contained in one giant particle is also determined by this number, set it carefully or it may influence the result of the simulation.  <br>
+`T0` and `ne` are used to set the initial temperature and number density of the particles, in K and $m^{-3}$ respectively.  <br>
+`grid_size` is a 3-D array containing number of grips in x,y,z axis, respectively.  <br>
 `total_step` is the number of steps simulated
 
 Here is the code for the initialization of the particles. `particle_number_e` and `particle_number_i` are used to set the initial number of electrons and ions, respectively. `particle_e` and `particle_i` are used to set the initial position of electrons and ions. `v_drift` is used to set an initial drift velocity of the particles, can be used for simulate plasma source. 
