@@ -6,7 +6,7 @@ This is a code of a plasma simulation using the particle-in-cell (PIC) method. P
 ## Code details for change set-ups of the simulation
 Here are some important variables determine the set-up of the simulation
 1. The code is initialized as a hydrogen electron code, the user can change ion mass and charge by changing `mi` and `e_i`.
-2. This code allows injection of new particles into the chamber, user can define `particle_number_setted ` to limit the maxima numbers of giant particles and `max_injection` for the maxima number of giant particles injected each time step. Note that number of real particles contained in one giant particle is also determined by this number, set it carefully or it may influence the result of the simulation.
+2. This code allows injection of new particles into the chamber, user can set `particle_number_setted ` to limit the maxima numbers of giant particles and `max_injection` for the maxima number of giant particles injected each time step. Note that number of real particles contained in one giant particle is also determined by this number, set it carefully or it may influence the result of the simulation.
 3. `T0` and `ne` are used to set the initial temperature and number density of the particles, in K and $m^{-3}$ respectively.
 4. `grid_size` is a 3-D array containing number of grips in x,y,z axis, respectively.
 5. `total_step` is the number of steps simulated
